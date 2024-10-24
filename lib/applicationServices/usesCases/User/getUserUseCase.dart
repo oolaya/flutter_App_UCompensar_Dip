@@ -5,7 +5,7 @@ class GetUserUseCase {
   final UserRepository _userRepository;
   GetUserUseCase(this._userRepository);
 
-  Future<List<UserEntity>> excete() async {
+  Future<List<UserEntity>> execute() async {
     return await _userRepository.getAll();
   }
 }

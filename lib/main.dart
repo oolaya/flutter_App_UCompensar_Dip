@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_ucompensar_dip/applicationServices/services/UserFullSevice.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/services/UserSevice.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/User/User.Entity.dart';
+import 'package:flutter_app_ucompensar_dip/domain/entities/UserFull/UserFull.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/infrastructure/http/DumyApi/DumyApi.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/LandingPage.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +11,8 @@ void main() {
   runApp(MultiProvider(
     providers: [
       Provider<UserService>(create: (_) => UserService(DumyApi<UserEntity>())),
+      Provider<UserFullService>(
+          create: (_) => UserFullService(DumyApi<UserFullEntity>()))
     ],
     child: const MyApp(),
   ));

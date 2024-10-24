@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_ucompensar_dip/applicationServices/services/UserFullSevice.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/services/UserSevice.dart';
+import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getByIdUser.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getUserUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/User/User.Entity.dart';
+import 'package:flutter_app_ucompensar_dip/domain/entities/UserFull/UserFull.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/infrastructure/http/DumyApi/DumyApi.dart';
 import 'package:flutter_app_ucompensar_dip/main.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/HomePage.dart';
@@ -19,8 +22,9 @@ class LandingPage extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => HomePage(),
-          '/User': (context) =>
-              UserPage(GetUserUseCase(UserService(DumyApi<UserEntity>()))),
+          '/User': (context) => UserPage(
+              GetUserUseCase(UserService(DumyApi<UserEntity>())),
+              GetByIdUserUseCase(UserFullService(DumyApi<UserFullEntity>()))),
         },
       ),
     );
