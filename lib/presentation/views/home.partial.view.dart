@@ -6,6 +6,7 @@ class HomePartialView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Partial View'),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Center(
         child: ElevatedButton(
