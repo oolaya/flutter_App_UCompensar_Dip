@@ -3,6 +3,7 @@ import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/ge
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListByUserUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/PostPreview/PostPreview.Entity.dart';
+import 'package:flutter_app_ucompensar_dip/presentation/views/navigationBar.dart';
 
 class PostPreviewPage extends StatelessWidget {
   final GetPostPreviewListUseCase _getPostPreviewListUseCase;
@@ -17,7 +18,11 @@ class PostPreviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String title = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
       body: Center(
         child: Column(
           children: [
@@ -33,6 +38,7 @@ class PostPreviewPage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: NavigationBarPartial(),
     );
   }
 }
