@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/User': (context) => UserPage(
-            GetUserUseCase(UserService(DumyApi<UserEntity>())),
             GetByIdUserUseCase(UserFullService(DumyApi<UserFullEntity>()))),
         '/PostPreview': (context) => PostPreviewPage(GetPostPreviewListUseCase(
             PostPreviewService(DumyApi<PostPreviewEntity>())))
