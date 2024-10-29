@@ -37,4 +37,18 @@ class PostPreviewService implements PostPreviewRepository {
     // TODO: implement update
     throw UnimplementedError();
   }
+  
+  @override
+  Future<List<PostPreviewEntity>> getByTag(String tag) async {
+    final List<PostPreviewEntity> post =
+        await _dumyApi.get(PostPreviewEntity.fromJson, 'tag/$tag/post');
+    return post;
+  }
+  
+  @override
+  Future<List<PostPreviewEntity>> getByUserId(String id) async {
+    final List<PostPreviewEntity> post =
+        await _dumyApi.get(PostPreviewEntity.fromJson, 'user/$id/post');
+    return post;
+  }
 }

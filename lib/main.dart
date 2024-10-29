@@ -4,6 +4,8 @@ import 'package:flutter_app_ucompensar_dip/applicationServices/services/user/Use
 import 'package:flutter_app_ucompensar_dip/applicationServices/services/post/PostPreviewService.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getByIdUser.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getUserUseCase.dart';
+import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListByTagUseCase.dart';
+import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListByUserUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/PostPreview/PostPreview.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/User/User.Entity.dart';
@@ -46,8 +48,13 @@ class MyApp extends StatelessWidget {
         '/User': (context) => UserPage(
             GetUserUseCase(UserService(DumyApi<UserEntity>())),
             GetByIdUserUseCase(UserFullService(DumyApi<UserFullEntity>()))),
-        '/PostPreview': (context) => PostPreviewPage(GetPostPreviewListUseCase(
-            PostPreviewService(DumyApi<PostPreviewEntity>())))
+        '/PostPreview': (context) => PostPreviewPage(
+            GetPostPreviewListUseCase(
+                PostPreviewService(DumyApi<PostPreviewEntity>())),
+            GetPostPreviewListByUserUseCase(
+                PostPreviewService(DumyApi<PostPreviewEntity>())),
+            GetPostPreviewListByTagUseCase(
+                PostPreviewService(DumyApi<PostPreviewEntity>()))),
       },
     );
   }
