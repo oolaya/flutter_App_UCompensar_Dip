@@ -30,7 +30,8 @@ class NavigationBarPartial extends StatelessWidget {
             Navigator.pushNamed(context, '/User');
             break;
           case 2:
-            Navigator.pushNamed(context, '/PostPreview');
+            Navigator.pushNamed(context, '/PostPreview',
+                arguments: 'Post Argumentos Dinamicos');
             break;
         }
       },

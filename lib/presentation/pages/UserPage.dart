@@ -6,13 +6,14 @@ import 'package:flutter_app_ucompensar_dip/presentation/views/navigationBar.dart
 class UserPage extends StatelessWidget {
   // final GetUserUseCase _getUserUseCase;
   final GetByIdUserUseCase _getUserByIdUseCase;
-  UserPage(this._getUserByIdUseCase);
+  String title = "";
+  UserPage(this._getUserByIdUseCase, {super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Page'),
+        title: Text(title),
       ),
       body: FutureBuilder<UserFullEntity>(
           future: _getUserByIdUseCase

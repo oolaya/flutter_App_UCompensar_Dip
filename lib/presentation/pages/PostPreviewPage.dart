@@ -5,14 +5,16 @@ import 'package:flutter_app_ucompensar_dip/presentation/views/navigationBar.dart
 
 class PostPreviewPage extends StatelessWidget {
   final GetPostPreviewListUseCase _getPostPreviewListUseCase;
+
   const PostPreviewPage(this._getPostPreviewListUseCase, {Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    String title = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Post Preview Page'),
+        title: Text(title),
       ),
       body: FutureBuilder<List<PostPreviewEntity>>(
           future: _getPostPreviewListUseCase.execute(),
