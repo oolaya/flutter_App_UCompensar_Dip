@@ -18,7 +18,7 @@ class PostPreviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String title = ModalRoute.of(context)!.settings.arguments as String;
+    String title = (ModalRoute.of(context)?.settings.arguments as String?) ?? 'Sin Titulo';
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
