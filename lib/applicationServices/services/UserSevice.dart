@@ -3,7 +3,7 @@ import 'package:flutter_app_ucompensar_dip/domain/repositories/UserRepository.da
 import 'package:flutter_app_ucompensar_dip/infrastructure/http/DumyApi/DumyApi.dart';
 
 class UserService implements UserRepository {
-  final DumyApi<UserEntity> _dumyApi;
+  final DumyApi<UserEntity, void> _dumyApi;
   UserService(this._dumyApi);
 
   @override

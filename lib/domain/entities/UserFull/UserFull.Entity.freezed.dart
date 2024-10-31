@@ -33,8 +33,12 @@ mixin _$UserFullEntity {
   DateTime? get registerDate => throw _privateConstructorUsedError;
   DateTime? get updatedDate => throw _privateConstructorUsedError;
 
+  /// Serializes this UserFullEntity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserFullEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserFullEntityCopyWith<UserFullEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$UserFullEntityCopyWithImpl<$Res, $Val extends UserFullEntity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserFullEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,6 +146,8 @@ class _$UserFullEntityCopyWithImpl<$Res, $Val extends UserFullEntity>
     ) as $Val);
   }
 
+  /// Create a copy of UserFullEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LocationCopyWith<$Res>? get location {
@@ -187,6 +195,8 @@ class __$$UserFullEntityImplCopyWithImpl<$Res>
       _$UserFullEntityImpl _value, $Res Function(_$UserFullEntityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserFullEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -331,7 +341,7 @@ class _$UserFullEntityImpl implements _UserFullEntity {
                 other.updatedDate == updatedDate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -348,7 +358,9 @@ class _$UserFullEntityImpl implements _UserFullEntity {
       registerDate,
       updatedDate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserFullEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserFullEntityImplCopyWith<_$UserFullEntityImpl> get copyWith =>
@@ -405,8 +417,11 @@ abstract class _UserFullEntity implements UserFullEntity {
   DateTime? get registerDate;
   @override
   DateTime? get updatedDate;
+
+  /// Create a copy of UserFullEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserFullEntityImplCopyWith<_$UserFullEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

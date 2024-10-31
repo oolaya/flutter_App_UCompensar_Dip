@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-class DumyApi<T> {
+class DumyApi<T,U> {
   var client = Dio();
 
   Future<List<T>> get(
@@ -18,6 +18,27 @@ class DumyApi<T> {
       return (bodyFinal as List<dynamic>).map((e) => mapper(e)).toList();
     } else {
       throw Exception('Failed to load data');
+    }
+  }
+
+  // ignore: avoid_shadowing_type_parameters
+  Future<U> create<T>(
+    U Function(Map<String, dynamic> json) mapper, String subPath, T item) async {
+
+    final response = await client.post(
+      'https://dummyapi.io/data/v1/$subPath',
+        options: Options(headers: {
+          'Content-type': 'application/json',
+          'Accept': 'application/json',
+          'app-id': '624c9429450430b574dcf17c'
+    }));
+
+    if (response.statusCode == 200) {
+      final body = (response.data as Map<String, dynamic>);
+      final bodyFinal = body['data'];
+      return (body as dynamic);
+    } else {
+      throw Exception('Failed to load data'); 
     }
   }
 

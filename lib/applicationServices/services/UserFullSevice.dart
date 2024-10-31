@@ -1,11 +1,9 @@
-import 'package:flutter_app_ucompensar_dip/domain/entities/User/User.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/UserFull/UserFull.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/domain/repositories/UserFullRepository.dart';
-import 'package:flutter_app_ucompensar_dip/domain/repositories/UserRepository.dart';
 import 'package:flutter_app_ucompensar_dip/infrastructure/http/DumyApi/DumyApi.dart';
 
 class UserFullService implements UserFullRepository {
-  final DumyApi<UserFullEntity> _dumyApi;
+  final DumyApi<UserFullEntity, void> _dumyApi;
   UserFullService(this._dumyApi);
 
   @override
