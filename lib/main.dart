@@ -3,7 +3,6 @@ import 'package:flutter_app_ucompensar_dip/applicationServices/services/user/Use
 import 'package:flutter_app_ucompensar_dip/applicationServices/services/user/UserSevice.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/services/post/PostPreviewService.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getByIdUser.dart';
-import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getUserUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListByTagUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListByUserUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListUseCase.dart';
@@ -11,6 +10,7 @@ import 'package:flutter_app_ucompensar_dip/domain/entities/PostPreview/PostPrevi
 import 'package:flutter_app_ucompensar_dip/domain/entities/User/User.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/UserFull/UserFull.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/infrastructure/http/DumyApi/DumyApi.dart';
+import 'package:flutter_app_ucompensar_dip/presentation/forms/user/user.create.form.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/HomePage.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/PostPreviewPage.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/UserPage.dart';
@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
                 PostPreviewService(DumyApi<PostPreviewEntity>())),
             GetPostPreviewListByTagUseCase(
                 PostPreviewService(DumyApi<PostPreviewEntity>()))),
+        '/add-user': (context) => UserCreateForm(),
       },
     );
   }

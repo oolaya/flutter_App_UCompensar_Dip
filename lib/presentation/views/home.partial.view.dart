@@ -6,7 +6,8 @@ class HomePartialView extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/PostPreview');
+          Navigator.pushNamed(context, '/PostPreview',
+              arguments: 'PostPreview');
         },
         child: const Text('Go to User Page'),
       ),
