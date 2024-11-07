@@ -3,6 +3,7 @@ import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/ge
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListByUserUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/PostPreview/PostPreview.Entity.dart';
+import 'package:flutter_app_ucompensar_dip/presentation/forms/post/post.create.form.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/views/navigationBar.dart';
 
 class PostPreviewPage extends StatelessWidget {
@@ -35,6 +36,8 @@ class PostPreviewPage extends StatelessWidget {
             Text('from PostPreviewListByTag',
                 style: Theme.of(context).textTheme.titleLarge),
             _PostPreviewListByTag(_getPostPreviewListByTagUseCase),
+            Text('Formulario de prueba', style: Theme.of(context).textTheme.titleLarge),
+            PostCreateForm(),
           ],
         ),
       ),
