@@ -29,6 +29,12 @@ class UserPage extends StatelessWidget {
             }
           }),
       bottomNavigationBar: NavigationBarPartial(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/add-user');
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

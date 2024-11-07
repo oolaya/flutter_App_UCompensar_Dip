@@ -9,6 +9,7 @@ import 'package:flutter_app_ucompensar_dip/domain/entities/PostPreview/PostPrevi
 import 'package:flutter_app_ucompensar_dip/domain/entities/User/User.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/UserFull/UserFull.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/infrastructure/http/DumyApi/DumyApi.dart';
+import 'package:flutter_app_ucompensar_dip/presentation/forms/user/user.create.form.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/HomePage.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/PostPreviewPage.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/UserPage.dart';
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
               title: "User View Dinamico",
             ),
         '/PostPreview': (context) => PostPreviewPage(GetPostPreviewListUseCase(
-            PostPreviewService(DumyApi<PostPreviewEntity>())))
+            PostPreviewService(DumyApi<PostPreviewEntity>()))),
+        '/add-user': (context) => UserCreateForm(),
       },
     );
   }
