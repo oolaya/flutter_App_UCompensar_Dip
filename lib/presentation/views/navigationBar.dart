@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 class NavigationBarPartial extends StatelessWidget {
+  final Function(int) onTab;
+  final int currentIndex;
+  const NavigationBarPartial(
+      {super.key, required this.onTab, required this.currentIndex});
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -18,37 +23,9 @@ class NavigationBarPartial extends StatelessWidget {
           label: 'Post',
         ),
       ],
-      currentIndex: _getSelectedIndex(context),
+      currentIndex: currentIndex,
       selectedItemColor: Colors.amber[800],
-      onTap: (index) {
-        // Handle item tap
-        switch (index) {
-          case 0:
-            Navigator.pushNamed(context, '/');
-            break;
-          case 1:
-            Navigator.pushNamed(context, '/User');
-            break;
-          case 2:
-            Navigator.pushNamed(context, '/PostPreview',
-                arguments: 'Post Argumentos Dinamicos');
-            break;
-        }
-      },
+      onTap: onTab,
     );
-  }
-
-  int _getSelectedIndex(BuildContext context) {
-    final route = ModalRoute.of(context)?.settings.name;
-    switch (route) {
-      case '/':
-        return 0;
-      case '/User':
-        return 1;
-      case '/PostPreview':
-        return 2;
-      default:
-        return 0;
-    }
   }
 }

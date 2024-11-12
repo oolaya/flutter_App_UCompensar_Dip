@@ -4,7 +4,6 @@ import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/ge
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/post/getPostPreviewListUseCase.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/PostPreview/PostPreview.Entity.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/forms/post/post.create.form.dart';
-import 'package:flutter_app_ucompensar_dip/presentation/views/navigationBar.dart';
 
 class PostPreviewPage extends StatelessWidget {
   final GetPostPreviewListUseCase _getPostPreviewListUseCase;
@@ -19,7 +18,8 @@ class PostPreviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String title = (ModalRoute.of(context)?.settings.arguments as String?) ?? 'Sin Titulo';
+    String title =
+        (ModalRoute.of(context)?.settings.arguments as String?) ?? 'Sin Titulo';
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -36,12 +36,12 @@ class PostPreviewPage extends StatelessWidget {
             Text('from PostPreviewListByTag',
                 style: Theme.of(context).textTheme.titleLarge),
             _PostPreviewListByTag(_getPostPreviewListByTagUseCase),
-            Text('Formulario de prueba', style: Theme.of(context).textTheme.titleLarge),
+            Text('Formulario de prueba',
+                style: Theme.of(context).textTheme.titleLarge),
             PostCreateForm(),
           ],
         ),
       ),
-      bottomNavigationBar: NavigationBarPartial(),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getByIdUser.dart';
 import 'package:flutter_app_ucompensar_dip/domain/entities/UserFull/UserFull.Entity.dart';
-import 'package:flutter_app_ucompensar_dip/presentation/views/navigationBar.dart';
 
 class UserPage extends StatelessWidget {
   // final GetUserUseCase _getUserUseCase;
@@ -28,7 +27,6 @@ class UserPage extends StatelessWidget {
               return const Text('Error');
             }
           }),
-      bottomNavigationBar: NavigationBarPartial(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, '/add-user');
