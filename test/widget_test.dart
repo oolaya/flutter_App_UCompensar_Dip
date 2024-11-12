@@ -10,9 +10,10 @@ import 'package:flutter_app_ucompensar_dip/presentation/pages/UCompensarPage.dar
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const UCompensarPage());
+    await tester.pumpWidget(const UCompensarPage(settingsController: ,));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

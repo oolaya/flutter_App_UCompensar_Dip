@@ -47,5 +47,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Se requiere la camara para validar vitalidad</string>
 </dict>
 </plist>

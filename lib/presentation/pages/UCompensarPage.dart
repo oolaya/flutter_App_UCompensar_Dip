@@ -13,6 +13,7 @@ import 'package:flutter_app_ucompensar_dip/presentation/forms/user/user.create.f
 import 'package:flutter_app_ucompensar_dip/presentation/pages/PostPreviewPage.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/UserPage.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/landingPage.dart';
+import 'package:flutter_app_ucompensar_dip/presentation/periferics/CameraPage.dart';
 
 class UCompensarPage extends StatelessWidget {
   final SettingController settingsController;
@@ -43,6 +44,7 @@ class UCompensarPage extends StatelessWidget {
                   GetPostPreviewListByTagUseCase(
                       PostPreviewService(DumyApi<PostPreviewEntity>()))),
               '/add-user': (context) => UserCreateForm(),
+              '/camera': (context) => CameraPage(),
             },
           );
         });
