@@ -2,8 +2,7 @@
     <application
         android:label="flutter_app_ucompensar_dip"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-        android:resquestLegacyExternalStorage="true">
+        android:icon="@mipmap/ic_launcher">
 
         <activity
             android:name=".MainActivity"
@@ -32,6 +31,4 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
-    <use-permission android:name="android.permission.CAMERA"/>
-    <use-permission android:name="android.permission.RECORD_AUDIO"/>
 </manifest>
