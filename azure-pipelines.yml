@@ -14,10 +14,12 @@ pool:
 variables:
   flutterSdkVersion: 'stable'  # O la versión específica de Flutter que deseas
 
-steps:
+steps:  
   - task: FlutterInstall@0
     inputs:
-     version: 'stable'  # Usamos el canal stable de Flutter, pero puede ser una versión específica
+      mode: 'auto'
+      channel: 'stable'
+      version: 'latest'
 
   - task: FlutterBuild@0
     inputs:
