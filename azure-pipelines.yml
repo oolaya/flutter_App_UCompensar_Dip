@@ -4,16 +4,35 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- dev
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'Default'  # Nombre del pool donde está tu agente autoalojado
+  demands:
+    - Agent.OS -equals Windows_NT
+
+variables:
+  flutterSdkVersion: 'stable'  # O la versión específica de Flutter que deseas
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - task: FlutterInstall@0
+    inputs:
+     version: 'stable'  # Usamos el canal stable de Flutter, pero puede ser una versión específica
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - task: FlutterBuild@0
+    inputs:
+      projectDirectory: '.'
+      target: 'apk'
+      buildFlavor: 'release'  # Para construir en modo de producción
+
+  - task: CopyFiles@2  # Copia el APK generado a un directorio de salida
+    inputs:
+      contents: 'build/app/outputs/flutter-apk/app-release.apk'
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
+
+  - task: PublishBuildArtifacts@1  # Publica el APK como artefacto en Azure DevOps
+    inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'apk'
+      publishLocation: 'Container'
+    displayName: 'Run a multi-line script'
