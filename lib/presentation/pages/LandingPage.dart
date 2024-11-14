@@ -1,32 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_ucompensar_dip/applicationServices/services/UserFullSevice.dart';
-import 'package:flutter_app_ucompensar_dip/applicationServices/services/UserSevice.dart';
-import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getByIdUser.dart';
-import 'package:flutter_app_ucompensar_dip/applicationServices/usesCases/User/getUserUseCase.dart';
-import 'package:flutter_app_ucompensar_dip/domain/entities/User/User.Entity.dart';
-import 'package:flutter_app_ucompensar_dip/domain/entities/UserFull/UserFull.Entity.dart';
-import 'package:flutter_app_ucompensar_dip/infrastructure/http/DumyApi/DumyApi.dart';
-import 'package:flutter_app_ucompensar_dip/main.dart';
+import 'package:flutter_app_ucompensar_dip/infrastructure/controllers/setting/settingContoller.dart';
+import 'package:flutter_app_ucompensar_dip/presentation/layouts/LayoutGeral.dart';
 import 'package:flutter_app_ucompensar_dip/presentation/pages/HomePage.dart';
-import 'package:flutter_app_ucompensar_dip/presentation/pages/UserPage.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
+  final SettingController settingsController;
+
+  const LandingPage({Key? key, required this.settingsController});
+
+  @override
+  State<LandingPage> createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
+  int _currentIndex = 0;
+
+  void _onTab(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/User');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/PostPreview');
+        break;
+      default:
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Landing Page'),
-      ),
-      body: MaterialApp(
-        title: 'Flutter Demo',
-        initialRoute: '/',
-        routes: {
-          '/': (context) => HomePage(),
-          '/User': (context) => UserPage(
-              GetUserUseCase(UserService(DumyApi<UserEntity>())),
-              GetByIdUserUseCase(UserFullService(DumyApi<UserFullEntity>()))),
-        },
-      ),
-    );
+    return LayoutPage(
+        title: 'Inicio',
+        index: _currentIndex,
+        onTab: _onTab,
+        child: HomePage(
+          settingsController: widget.settingsController,
+        ));
   }
 }
