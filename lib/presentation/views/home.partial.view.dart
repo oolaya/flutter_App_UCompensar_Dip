@@ -9,7 +9,10 @@ class HomePartialView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: DropdownButton<ThemeMode>(
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      const Text('Theme:'),
+      const SizedBox(width: 8),
+      DropdownButton<ThemeMode>(
           value: settingsController.themeMode,
           onChanged: settingsController.updateThemeMode,
           items: const [
@@ -26,14 +29,13 @@ class HomePartialView extends StatelessWidget {
               child: Text('Dark'),
             ),
           ]),
-
-      // ElevatedButton(
-      //   onPressed: () {
-      //     Navigator.pushNamed(context, '/PostPreview',
-      //         arguments: 'PostPreview');
-      //   },
-      //   child: const Text('Go to User Page'),
-      // ),
-    );
+      const SizedBox(width: 8),
+      ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/camera', arguments: 'camera');
+        },
+        child: const Text('Active Camera'),
+      ),
+    ]));
   }
 }
