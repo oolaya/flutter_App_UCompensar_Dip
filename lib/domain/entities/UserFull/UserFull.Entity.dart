@@ -1,4 +1,3 @@
-import 'dart:html';
 import './../ObjectValue/LocationValue.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
