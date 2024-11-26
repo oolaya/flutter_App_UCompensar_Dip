@@ -1,0 +1,42 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- dev
+
+
+pool:
+  name: 'Default'
+  demands:
+    - Agent.OS -equals Windows_NT
+
+steps:
+  - task: FlutterInstall@0 # Tarea para instalar la ultima version de Flutter
+    inputs:
+      mode: 'auto'
+      channel: 'stable'
+      version: 'latest'
+    displayName: 'Instalando Flutter'
+  
+  - task: FlutterBuild@0 #Tarea para hacer buil mod prod de Flatter
+    inputs:
+      target: 'apk'
+      projectDirectory: '.'
+      buildFlavour: 'release' #Apk para producción
+    displayName: 'buil mod prod de Flatter'
+  
+  - task: CopyFiles@2
+    inputs:
+      Contents: 'build\app\outputs\flutter-apk\app-release.apk'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    displayName: 'Copiar el apk del origen'
+  
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'apk'
+      publishLocation: 'Container'
+    displayName: 'PUblicacion de artefacto'
+
